@@ -33,7 +33,7 @@ export default function Chat() {
         {
           headers: {
             "Content-Type": "application/json",
-            "X-goog-api-key": "AIzaSyA3xX31vr3SlJ2_I6iGbZ1TtJGQ3Ygl-w8"
+            "X-goog-api-key": "AIzaSyBoVcDTStGnlRZu_MLvBbJpWLBNrmz8PYg"
           }
         }
       );
