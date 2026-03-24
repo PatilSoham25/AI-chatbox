@@ -8,10 +8,10 @@ export default function Chat() {
   const [input, setInput] = useState("");
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim()) return; //to avoid blank msgs
 
     const userMessage = { text: input, sender: "user" };
-    setMessages(prev => [...prev, userMessage]);
+    setMessages(prev => [...prev, userMessage]); //to update UI
 
     const userInput = input;
     setInput("");
@@ -31,17 +31,20 @@ export default function Chat() {
           contents: formattedMessages
         },
         {
+          // required for authentication
           headers: {
             "Content-Type": "application/json",
-            "X-goog-api-key": "AIzaSyBoVcDTStGnlRZu_MLvBbJpWLBNrmz8PYg"
+            "X-goog-api-key": "AIzaSyDqRPYl0Z_D1EcNflLoANW5T1lhbofLTSo"
           }
         }
       );
 
+      // get actual text from API response 
       const botText =
         res.data.candidates?.[0]?.content?.parts?.[0]?.text ||
         "No response from AI";
 
+        // to show AI reply in UI
       const botReply = {
         text: botText,
         sender: "bot"
